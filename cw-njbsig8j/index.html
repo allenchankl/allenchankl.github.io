@@ -63,6 +63,9 @@
   body.touch canvas{touch-action:none}
   #stick{position:absolute;left:max(18px,env(safe-area-inset-left));bottom:max(22px,env(safe-area-inset-bottom));width:132px;height:132px;border-radius:50%;background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.35);pointer-events:auto}
   #knob{position:absolute;left:41px;top:41px;width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,.55);box-shadow:0 2px 8px rgba(0,0,0,.3)}
+  .tch{display:none}
+  body.touch .tch{display:inline}
+  body.touch .kbd{display:none}
   #tbtns{position:absolute;right:max(14px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(2,58px);gap:10px;pointer-events:auto}
   .tb{width:58px;height:58px;border-radius:50%;border:2px solid rgba(255,255,255,.4);background:rgba(20,28,40,.45);color:#fff;font-size:24px;display:flex;align-items:center;justify-content:center;padding:0;margin:0}
   .tb.on{background:rgba(255,212,121,.55)}
@@ -3865,7 +3868,7 @@ float hzLd(vec2 p) { vec2 t = floor(p / 400.0 + 0.5) - hzO; if (t.x < 0.0 || t.y
   <canvas id="minimap" width="420" height="420"></canvas>
   <div id="speedo"><span id="mph">0</span> <small>mph</small> <small id="gear"></small></div>
   <div id="loadPanel" class="panel"><div class="title" id="lpTitle"></div><div class="bar" id="lpBar"><i></i></div><div id="lpJobs"></div></div>
-  <div id="prompt" class="panel">Press <b>E</b> to get in the car</div>
+  <div id="prompt" class="panel"><span class="kbd">Press <b>E</b></span><span class="tch">Tap 🚗</span> to get in the car</div>
   <div id="crosshair"></div>
 </div>
 <div id="click">Click to look around</div>
