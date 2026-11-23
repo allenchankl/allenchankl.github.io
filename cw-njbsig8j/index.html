@@ -3914,7 +3914,9 @@ float fresRefl;
         diffuseColor.a = mix(0.42, 0.93, smoothstep(0.0, 1.6, vShore));`).replace("vec3 mapN = texture2D( normalMap, vNormalMapUv ).xyz * 2.0 - 1.0;",`vec3 n1 = texture2D( normalMap, vNormalMapUv ).xyz * 2.0 - 1.0;
         vec3 n2 = texture2D( normalMap, vNormalMapUv * 2.7 + vec2(uTime * 0.017, -uTime * 0.023) ).xyz * 2.0 - 1.0;
         vec3 n3 = texture2D( normalMap, vNormalMapUv * 9.0 + vec2(-uTime * 0.11, uTime * 0.07) ).xyz * 2.0 - 1.0;
-        vec3 mapN = normalize(vec3(n1.xy + n2.xy * 0.6 + n3.xy * uRain * 0.8, 1.0));`).replace("#include <envmap_fragment>",`
+        vec3 mapN = normalize(vec3(n1.xy + n2.xy * 0.6 + n3.xy * uRain * 0.8, 1.0));`).replace("#include <lights_fragment_end>",`#include <lights_fragment_end>
+        { float vd = length(vViewPosition); reflectedLight.directSpecular *= mix(1.0, 0.08, smoothstep(80.0, 450.0, vd));
+          reflectedLight.directSpecular = min(reflectedLight.directSpecular, vec3(mix(3.0, 0.9, smoothstep(40.0, 250.0, vd)))); }`).replace("#include <envmap_fragment>",`
         { float ndv = clamp(dot(normal, normalize(vViewPosition)), 0.0, 1.0); fresRefl = clamp(0.02 + 0.98 * pow(1.0 - ndv, 5.0), 0.04, 0.72) * (1.0 - 0.45 * uNight); }
         #define reflectivity fresRefl
         #include <envmap_fragment>
