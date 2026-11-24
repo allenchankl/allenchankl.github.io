@@ -161,10 +161,10 @@
   body.touch .tb{width:var(--tb);height:var(--tb);font-size:calc(var(--tb) * .4)}
   body.touch #tmenu{right:calc(max(10px,env(safe-area-inset-right)) + 2*var(--tb) + 18px);bottom:max(12px,env(safe-area-inset-bottom));max-height:calc(100dvh - 24px);overflow:auto}
   /* floating joystick: touch anywhere in the lower-left area and the stick centres under your thumb */
-  #stickZone{position:absolute;left:0;bottom:0;width:48vw;height:62%;pointer-events:auto;touch-action:none}
+  #stickZone{position:absolute;left:0;bottom:0;width:33.4vw;height:62%;pointer-events:auto;touch-action:none}
   body.touch #stick{pointer-events:none;opacity:.45;transition:opacity .2s}
   body.touch #stick.active{opacity:1;transition:none}
-  @media (orientation:portrait){ body.touch #stickZone{width:62vw;height:45%} }
+  @media (orientation:portrait){ body.touch #stickZone{width:33.4vw;height:45%} }
   @media (orientation:portrait){ body.touch #info{max-width:calc(100vw - 122px)} body.touch #loadPanel{bottom:calc(3 * var(--tb) + 40px);max-width:calc(100vw - 24px);width:300px} }
 </style>
 
